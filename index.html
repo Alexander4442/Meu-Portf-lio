@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Alexander Portfólio</title>
+</head>
+
+<body>
+
+    <div class="particulas"></div>
+
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">Início</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#projetos" class="menu-link">Projetos</a>
+            </li>
+            <li>
+                <a href="#contatos" class="menu-link">Contato</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio" class="cabecalho">
+        <img src="./img/logo.jpeg" alt="Foto de Alexander Germano" class="foto-perfil">
+        <h1>Alexander Germano</h1>
+        <p class="cabecalho-sub-titulo">Desenvolvedor Front-End</p>
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre Mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">
+                Sou desenvolvedor Front-end, apaixonado por criar experiências web modernas e funcionais. Desenvolvo
+                sites que unem
+                desempenho, responsividade e design atrativo. Meu foco é transformar ideias em interfaces que funcionam
+                perfeitamente e
+                impressionam quem as vê.
+            </p>
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo">Meus Projetos</h2>
+        <div class="projetos-caixa">
+            <div class="projetos-card">
+                <img src="./img/agendamentos-logo.jpeg" alt="foto-agendamentos-prefeituras" class="projetos-imagem">
+                <div class="caixa-textos-projetos">
+                    <h3 class="info-projetos">Agendamentos Prefeituras</h3>
+                    <p class="paragrafo-projetos">Plataforma de agendamento online para múltiplas prefeituras, voltada a
+                        serviços públicos como RG, vacinação e
+                        alistamento. Sistema personalizável por município, com temas visuais próprios. Painel
+                        administrativo
+                        para gestão de horários, vagas, prioridades e cidadãos. Agendamento online autônomo, com
+                        controle
+                        inteligente de
+                        lotação e datas.</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="./img/conversor-logo.png" alt="conversor-logo" class="projetos-imagem">
+                <div class="caixa-textos-projetos">
+                    <h3 class="info-projetos">Conversor de Moedas</h3>
+                    <p class="paragrafo-projetos">Conversor de moedas em tempo real, com interface intuitiva e design
+                        responsivo.
+                        Permite a conversão entre diferentes moedas, com atualização automática das taxas de câmbio.</p>
+                </div>
+
+    </section>
+
+    
+    <section id="contatos" class="contatos">
+        <h2 class="contatos-titulo">Entre em Contato</h2>
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="6" id="mensagem"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar Mensagem, Via Whatsapp</button>
+        </form>
+    </section>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
