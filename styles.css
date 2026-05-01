@@ -327,3 +327,104 @@ h1 {
         transform: translateY(-20px);
     }
 }
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+
+.hero-img {
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+.hero-texto {
+    max-width: 500px;
+}
+
+.intro {
+    font-size: 1rem;
+    color: var(--claro);
+}
+
+.hero-texto h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+.hero-texto h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-texto span {
+    color: var(--primaria);
+}
+
+.descricao {
+    margin-bottom: 20px;
+    color: rgba(226, 232, 240, 0.8);
+}
+
+/* ICONES */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+    font-size: 1.2rem;
+}
+
+/* LINKEDIN */
+.social-icons .linkedin {
+    color: #0A66C2;
+    border: 1px solid #0A66C2;
+}
+
+.social-icons .linkedin:hover {
+    background: #0A66C2;
+    color: white;
+    box-shadow: 0 0 15px #0A66C2;
+}
+
+/* GITHUB */
+.social-icons .github {
+    color: #171515;
+    border: 1px solid #171515;
+}
+
+.social-icons .github:hover {
+    background: #171515;
+    color: white;
+    box-shadow: 0 0 15px #171515;
+}
+
+/* BOTÃO CV */
+.btn-cv {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(45deg, var(--primaria), var(--secundaria));
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-cv:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(79, 70, 229, 0.4);
+}
