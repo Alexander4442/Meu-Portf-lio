@@ -1,22 +1,28 @@
-/* =========================================================
+/* ========================================
    MENU MOBILE
-========================================================= */
+======================================== */
 
-const navigationToggle = document.getElementById("navigation-toggle");
-const navigationMenu = document.getElementById("navigation-menu");
+const navigationToggle =
+    document.getElementById("navigation-toggle");
+
+const navigationMenu =
+    document.getElementById("navigation-menu");
+
 
 navigationToggle.addEventListener("click", () => {
 
-    const isOpen = navigationMenu.classList.toggle("open");
+    const isOpen =
+        navigationMenu.classList.toggle("open");
 
     navigationToggle.setAttribute(
         "aria-expanded",
         isOpen
     );
 
-    navigationToggle.innerHTML = isOpen
-        ? '<i class="fa-solid fa-xmark"></i>'
-        : '<i class="fa-solid fa-bars"></i>';
+    navigationToggle.innerHTML =
+        isOpen
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
 });
 
 
@@ -37,15 +43,13 @@ document
 
             navigationToggle.innerHTML =
                 '<i class="fa-solid fa-bars"></i>';
-
         });
-
     });
 
 
-/* =========================================================
+/* ========================================
    TEXTO DIGITANDO
-========================================================= */
+======================================== */
 
 const typingElement =
     document.getElementById("typing-text");
@@ -61,10 +65,12 @@ let wordIndex = 0;
 let characterIndex = 0;
 let deleting = false;
 
+
 function typeEffect() {
 
     const currentWord =
         typingWords[wordIndex];
+
 
     if (!deleting) {
 
@@ -76,11 +82,18 @@ function typeEffect() {
 
         characterIndex++;
 
-        if (characterIndex === currentWord.length) {
+
+        if (
+            characterIndex ===
+            currentWord.length
+        ) {
 
             deleting = true;
 
-            setTimeout(typeEffect, 1600);
+            setTimeout(
+                typeEffect,
+                1600
+            );
 
             return;
         }
@@ -95,6 +108,7 @@ function typeEffect() {
 
         characterIndex--;
 
+
         if (characterIndex === 0) {
 
             deleting = false;
@@ -102,9 +116,9 @@ function typeEffect() {
             wordIndex =
                 (wordIndex + 1) %
                 typingWords.length;
-
         }
     }
+
 
     setTimeout(
         typeEffect,
@@ -112,15 +126,17 @@ function typeEffect() {
     );
 }
 
+
 typeEffect();
 
 
-/* =========================================================
+/* ========================================
    ANIMAÇÃO DAS SEÇÕES
-========================================================= */
+======================================== */
 
 const revealElements =
     document.querySelectorAll(".reveal");
+
 
 const revealObserver =
     new IntersectionObserver(
@@ -130,35 +146,43 @@ const revealObserver =
 
                 if (entry.isIntersecting) {
 
-                    entry.target.classList.add("visible");
+                    entry.target.classList.add(
+                        "visible"
+                    );
 
                     revealObserver.unobserve(
                         entry.target
                     );
                 }
-
             });
-
         },
         {
             threshold: 0.12
         }
     );
 
+
 revealElements.forEach((element) => {
+
     revealObserver.observe(element);
+
 });
 
 
-/* =========================================================
-   NAVEGAÇÃO ATIVA
-========================================================= */
+/* ========================================
+   NAVEGAÇÃO
+======================================== */
 
 const sections =
-    document.querySelectorAll("main section[id]");
+    document.querySelectorAll(
+        "main section[id]"
+    );
 
 const navigationLinks =
-    document.querySelectorAll(".navigation-link");
+    document.querySelectorAll(
+        ".navigation-link"
+    );
+
 
 const sectionObserver =
     new IntersectionObserver(
@@ -170,130 +194,173 @@ const sectionObserver =
                     return;
                 }
 
+
                 navigationLinks.forEach((link) => {
-                    link.classList.remove("active");
+
+                    link.classList.remove(
+                        "active"
+                    );
+
                 });
+
 
                 const activeLink =
                     document.querySelector(
                         `.navigation-link[href="#${entry.target.id}"]`
                     );
 
+
                 if (activeLink) {
-                    activeLink.classList.add("active");
+
+                    activeLink.classList.add(
+                        "active"
+                    );
+
                 }
 
             });
 
         },
         {
-            rootMargin: "-35% 0px -55% 0px"
+            rootMargin:
+                "-35% 0px -55% 0px"
         }
     );
 
+
 sections.forEach((section) => {
+
     sectionObserver.observe(section);
+
 });
 
 
-/* =========================================================
+/* ========================================
    BOTÃO VOLTAR AO TOPO
-========================================================= */
+======================================== */
 
 const backToTop =
-    document.getElementById("back-to-top");
+    document.getElementById(
+        "back-to-top"
+    );
+
 
 window.addEventListener("scroll", () => {
 
     if (window.scrollY > 500) {
 
-        backToTop.classList.add("visible");
+        backToTop.classList.add(
+            "visible"
+        );
 
     } else {
 
-        backToTop.classList.remove("visible");
+        backToTop.classList.remove(
+            "visible"
+        );
 
     }
 
 });
 
 
-/* =========================================================
+/* ========================================
    BRILHO ACOMPANHANDO O MOUSE
-========================================================= */
+======================================== */
 
 const cursorGlow =
-    document.querySelector(".cursor-glow");
-
-window.addEventListener("mousemove", (event) => {
-
-    cursorGlow.style.left =
-        `${event.clientX}px`;
-
-    cursorGlow.style.top =
-        `${event.clientY}px`;
-
-});
+    document.querySelector(
+        ".cursor-glow"
+    );
 
 
-/* =========================================================
+window.addEventListener(
+    "mousemove",
+    (event) => {
+
+        cursorGlow.style.left =
+            `${event.clientX}px`;
+
+        cursorGlow.style.top =
+            `${event.clientY}px`;
+
+    }
+);
+
+
+/* ========================================
    EFEITO TILT NOS CARDS
-========================================================= */
+======================================== */
 
 const cards =
     document.querySelectorAll(
         ".technology-card, .project-card"
     );
 
+
 cards.forEach((card) => {
 
-    card.addEventListener("mousemove", (event) => {
+    card.addEventListener(
+        "mousemove",
+        (event) => {
 
-        const rect =
-            card.getBoundingClientRect();
-
-        const x =
-            event.clientX - rect.left;
-
-        const y =
-            event.clientY - rect.top;
-
-        const centerX =
-            rect.width / 2;
-
-        const centerY =
-            rect.height / 2;
-
-        const rotateX =
-            ((y - centerY) / centerY) * -4;
-
-        const rotateY =
-            ((x - centerX) / centerX) * 4;
-
-        card.style.transform =
-            `perspective(900px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             translateY(-5px)`;
-
-    });
+            const rect =
+                card.getBoundingClientRect();
 
 
-    card.addEventListener("mouseleave", () => {
+            const x =
+                event.clientX - rect.left;
 
-        card.style.transform = "";
+            const y =
+                event.clientY - rect.top;
 
-    });
+
+            const centerX =
+                rect.width / 2;
+
+            const centerY =
+                rect.height / 2;
+
+
+            const rotateX =
+                ((y - centerY) /
+                    centerY) * -4;
+
+            const rotateY =
+                ((x - centerX) /
+                    centerX) * 4;
+
+
+            card.style.transform =
+                `perspective(900px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-5px)`;
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        () => {
+
+            card.style.transform = "";
+
+        }
+    );
 
 });
 
 
-/* =========================================================
-   WHATSAPP
-========================================================= */
+/* ========================================
+   WHATSAPP / CONTATO
+======================================== */
 
 const contactForm =
-    document.getElementById("contact-form");
+    document.getElementById(
+        "contact-form"
+    );
+
 
 contactForm.addEventListener(
     "submit",
@@ -301,11 +368,13 @@ contactForm.addEventListener(
 
         event.preventDefault();
 
+
         const nome =
             document
                 .getElementById("nome")
                 .value
                 .trim();
+
 
         const mensagem =
             document
@@ -313,21 +382,27 @@ contactForm.addEventListener(
                 .value
                 .trim();
 
+
         if (!nome || !mensagem) {
             return;
         }
 
+
         const telefone =
             "5585989237811";
+
 
         const texto =
             `Olá, Alexander! Meu nome é ${nome}.\n\n${mensagem}`;
 
+
         const mensagemFormatada =
             encodeURIComponent(texto);
 
+
         const url =
             `https://wa.me/${telefone}?text=${mensagemFormatada}`;
+
 
         window.open(
             url,
@@ -339,9 +414,9 @@ contactForm.addEventListener(
 );
 
 
-/* =========================================================
-   TSPARTICLES
-========================================================= */
+/* ========================================
+   PARTÍCULAS
+======================================== */
 
 tsParticles.load("particulas", {
 
@@ -351,23 +426,31 @@ tsParticles.load("particulas", {
 
     fpsLimit: 60,
 
+
     particles: {
 
         number: {
+
             value: 70,
+
             density: {
                 enable: true,
                 area: 1000
             }
+
         },
 
+
         color: {
+
             value: [
                 "#6366f1",
                 "#8b5cf6",
                 "#a78bfa"
             ]
+
         },
+
 
         links: {
 
@@ -382,6 +465,7 @@ tsParticles.load("particulas", {
             width: 1
 
         },
+
 
         move: {
 
@@ -401,25 +485,33 @@ tsParticles.load("particulas", {
 
         },
 
+
         opacity: {
+
             value: {
                 min: 0.15,
                 max: 0.45
             }
+
         },
 
+
         size: {
+
             value: {
                 min: 1,
                 max: 3
             }
+
         }
 
     },
 
+
     interactivity: {
 
         detectsOn: "window",
+
 
         events: {
 
@@ -431,6 +523,7 @@ tsParticles.load("particulas", {
 
             },
 
+
             onClick: {
 
                 enable: true,
@@ -440,6 +533,7 @@ tsParticles.load("particulas", {
             }
 
         },
+
 
         modes: {
 
@@ -453,6 +547,7 @@ tsParticles.load("particulas", {
 
             },
 
+
             push: {
 
                 quantity: 3
@@ -462,6 +557,7 @@ tsParticles.load("particulas", {
         }
 
     },
+
 
     detectRetina: true
 
